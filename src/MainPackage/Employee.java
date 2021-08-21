@@ -43,5 +43,9 @@ public class Employee {
 	double calculateMonthlyWage() {
 		return monthlyWorkingDays*calculateDailyWageSwitch();
 	}
+	
+	double calculateWagePerHour(int hours) {
+		return hours*wagePerHour;
+	}
 
 }
