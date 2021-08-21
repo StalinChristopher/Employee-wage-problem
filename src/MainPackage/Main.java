@@ -16,7 +16,9 @@ public class Main {
 		else
 			System.out.println("Employee em1 is absent");
 		
-		System.out.println("Daily wages of regular employee is "+em1.calculateDailyWageSwitch());
+		System.out.println("Daily wages of employee em1 of type regular is "+em1.calculateDailyWageSwitch());
+		System.out.println("Monthly wage of employee em2 of type regular is "+em1.calculateMonthlyWage());
+		
 		
 		//Creating a part time employee who has an wage per hour of 10
 		Employee em2=new Employee(10,PART_TIME);
@@ -24,7 +26,9 @@ public class Main {
 			System.out.println("Employee em2 is present");
 		else
 			System.out.println("Employee em2 is absent");
-		System.out.println("Daily wages of part time employee is "+em2.calculateDailyWageSwitch());
+		
+		System.out.println("Daily wages of employee em2 of type part time is "+em2.calculateDailyWageSwitch());
+		System.out.println("Daily wages of employee em2 of type part time is "+em2.calculateMonthlyWage());
 	}
 
 }

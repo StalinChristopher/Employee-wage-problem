@@ -3,6 +3,7 @@ package MainPackage;
 public class Employee {
 	final double regularFullDayWorkingHours=8;
 	final double partTimeFullDayWorkingHours=8;
+	final double monthlyWorkingDays=20;
 	
 	double wagePerHour;
 	int emp_type;
@@ -37,6 +38,10 @@ public class Employee {
 				break;
 		}
 		return dailyWage;
+	}
+	
+	double calculateMonthlyWage() {
+		return monthlyWorkingDays*calculateDailyWageSwitch();
 	}
 
 }
