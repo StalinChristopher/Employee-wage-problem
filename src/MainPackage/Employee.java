@@ -5,8 +5,11 @@ public class Employee {
 	final double partTimeFullDayWorkingHours=8;
 	
 	double wagePerHour;
-	Employee(int wagePerHour){
+	int emp_type;
+	double dailyWage;
+	Employee(int wagePerHour,int emp_type){
 		this.wagePerHour=wagePerHour;
+		this.emp_type=emp_type;
 	}
 	boolean isPresent() {
 		double emp_val=Math.floor(Math.random()*10)%2;
@@ -24,6 +27,16 @@ public class Employee {
 	
 	double calculatePartTimeDailyWage() {
 		return partTimeFullDayWorkingHours*wagePerHour;
+	}
+	
+	double calculateDailyWageSwitch() {
+		switch(emp_type) {
+		case 1: dailyWage=regularFullDayWorkingHours*wagePerHour;
+				break;
+		case 2: dailyWage=partTimeFullDayWorkingHours*wagePerHour;
+				break;
+		}
+		return dailyWage;
 	}
 
 }
