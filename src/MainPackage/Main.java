@@ -28,7 +28,8 @@ public class Main {
 			System.out.println("Employee em2 is absent");
 		
 		System.out.println("Daily wages of employee em2 of type part time is "+em2.calculateDailyWageSwitch());
-		System.out.println("Daily wages of employee em2 of type part time is "+em2.calculateMonthlyWage());
+		
+		System.out.println("Monthly wages of employee em2 of type part time is "+em2.calculateMonthlyWage());
 	}
 
 }
