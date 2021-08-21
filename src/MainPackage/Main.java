@@ -12,7 +12,11 @@ public class Main {
 			System.out.println("Employee is absent");
 		
 		//UC2
-		System.out.println("Daily wage of the employee is "+ em1.calculatedailyWage());
+		System.out.println("Daily wage of the regular employee is "+ em1.calculatedailyWage());
+		
+		
+		//UC3
+		System.out.println("Daily wage of the part time employee is " +em1.calculatePartTimeDailyWage());
 	}
 
 }

@@ -2,6 +2,7 @@ package MainPackage;
 
 public class Employee {
 	final double regularFullDayWorkingHours=8;
+	final double partTimeFullDayWorkingHours=8;
 	
 	double wagePerHour;
 	Employee(int wagePerHour){
@@ -18,6 +19,11 @@ public class Employee {
 	double calculatedailyWage() {
 		return regularFullDayWorkingHours*wagePerHour;
 		
+	}
+	
+	
+	double calculatePartTimeDailyWage() {
+		return partTimeFullDayWorkingHours*wagePerHour;
 	}
 
 }
