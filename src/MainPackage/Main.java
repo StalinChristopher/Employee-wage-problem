@@ -6,6 +6,8 @@ public class Main {
 		//setting values for reg and part time employees to be used during obj creation
 		final int REG_EMP=1;
 		final int PART_TIME=2; 
+		int total_hours_worked=0;
+		int total_Days_worked=0;
 		System.out.println("Welcome to the Employee wage computation program");
 		
 		//Creating a regular employee who has an wage per hour of 20
@@ -20,16 +22,17 @@ public class Main {
 		System.out.println("Monthly wage of employee em2 of type regular is "+em1.calculateMonthlyWage());
 		
 		
-		//Creating a part time employee who has an wage per hour of 10
-		Employee em2=new Employee(10,PART_TIME);
-		if(em2.isPresent())
-			System.out.println("Employee em2 is present");
-		else
-			System.out.println("Employee em2 is absent");
 		
-		System.out.println("Daily wages of employee em2 of type part time is "+em2.calculateDailyWageSwitch());
-		
-		System.out.println("Monthly wages of employee em2 of type part time is "+em2.calculateMonthlyWage());
+		while(total_Days_worked<20 && total_hours_worked<100) {
+			int randomHours = (int)Math.floor(Math.random()*((8-4)+1)+4);
+			System.out.println("Hours worked today : "+randomHours);
+			total_Days_worked++;
+			System.out.println("Day no: "+total_Days_worked);
+			total_hours_worked+=randomHours;
+		}
+		System.out.println("Total hours worked: "+total_hours_worked);
+		System.out.println("Total days worked: "+total_Days_worked);
+		System.out.println("Total wages earned by em1 : "+em1.calculateWagePerHour(total_hours_worked));
 	}
 
 }
