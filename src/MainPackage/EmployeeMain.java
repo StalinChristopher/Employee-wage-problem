@@ -1,6 +1,6 @@
 package MainPackage;
 
-public class Main {
+public class EmployeeMain {
 
 	public static void main(String[] args) {
 		//setting values for reg and part time employees to be used during obj creation
@@ -19,7 +19,7 @@ public class Main {
 			System.out.println("Employee em1 is absent");
 		
 		System.out.println("Daily wages of employee em1 of type regular is "+em1.calculateDailyWageSwitch());
-		System.out.println("Monthly wage of employee em2 of type regular is "+em1.calculateMonthlyWage());
+		System.out.println("Monthly wage of employee em1 of type regular is "+em1.calculateMonthlyWage());
 		
 		
 		

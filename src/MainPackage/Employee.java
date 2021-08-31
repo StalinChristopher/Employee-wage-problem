@@ -1,9 +1,11 @@
 package MainPackage;
 
 public class Employee {
-	final double regularFullDayWorkingHours=8;
-	final double partTimeFullDayWorkingHours=8;
-	final double monthlyWorkingDays=20;
+	private final double regularFullDayWorkingHours=8;
+	private final double partTimeFullDayWorkingHours=4;
+	private final double monthlyWorkingDays=20;
+	private final int FULL_TIME = 1;
+	private final int PART_TIME = 2;
 	
 	double wagePerHour;
 	int emp_type;
@@ -32,9 +34,9 @@ public class Employee {
 	
 	double calculateDailyWageSwitch() {
 		switch(emp_type) {
-		case 1: dailyWage=regularFullDayWorkingHours*wagePerHour;
+		case FULL_TIME: dailyWage=regularFullDayWorkingHours*wagePerHour;
 				break;
-		case 2: dailyWage=partTimeFullDayWorkingHours*wagePerHour;
+		case PART_TIME: dailyWage=partTimeFullDayWorkingHours*wagePerHour;
 				break;
 		}
 		return dailyWage;
