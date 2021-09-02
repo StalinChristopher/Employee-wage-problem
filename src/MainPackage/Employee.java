@@ -54,22 +54,23 @@ public class Employee {
 		return monthlyWorkingDays*calculateDailyWageSwitch();
 	}
 	
-	public double calculateWagePerHour(int hours) {
+	public double calculateWagePerHour(int wagePerHour,int hours) {
 		return hours*wagePerHour;
 	}
 	
-	public void daysAndHoursConditionWage() {
+	public void daysAndHoursConditionWage(int wagePerHour, int workingDaysPerMonth, int workingHoursPerMonth) {
 		if(!(emp_type==0)) {
-			while(total_Days_worked<20 && total_hours_worked<100) {
+			while(total_Days_worked<workingDaysPerMonth && total_hours_worked<workingHoursPerMonth){
 				int randomHours = (int)Math.floor(Math.random()*((8-4)+1)+4);
 				total_Days_worked++;
 				System.out.println("\nDay no: "+total_Days_worked);
 				System.out.println("Hours worked today : "+randomHours);
 				total_hours_worked+=randomHours;
+				System.out.println(total_hours_worked);
 			}
 			System.out.println("\nTotal hours worked: "+total_hours_worked);
 			System.out.println("Total days worked: "+total_Days_worked);
-			System.out.println("Total wages earned by employee: "+this.calculateWagePerHour(total_hours_worked));
+			System.out.println("Total wages earned by employee: "+this.calculateWagePerHour(wagePerHour,total_hours_worked));
 		}
 		
 	}
