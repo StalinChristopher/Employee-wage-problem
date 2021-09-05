@@ -6,18 +6,12 @@ public class EmployeeMain {
 		System.out.println("Welcome to the Employee wage computation program");
 		
 		//Creating a employee object
-		Employee em1=new Employee();
+		Employee employee=new Employee();
 		
-		//To randomly select the employee type and assign working hours based on type of employee
-		em1.isPresent();
-		
-		/*
-		System.out.println("Daily wages of employee "+em1.calculateDailyWageSwitch());
-		System.out.println("Monthly wage of employee "+em1.calculateMonthlyWage());
-		*/
-		
-		Employee.computeWage("Dmart",20, 15, 40);
-		Employee.computeWage("Infosys", 300, 25, 100);
+
+		employee.addCompanyEmpWage("Dmart", 60, 20, 80);
+		employee.addCompanyEmpWage("Infosys", 200, 18, 85);
+		employee.computeWage();
 				
 
 	}
