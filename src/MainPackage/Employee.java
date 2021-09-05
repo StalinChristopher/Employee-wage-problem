@@ -10,10 +10,8 @@ public class Employee {
 	private int empWorkingHours;
 	private int emp_type;
 	private double dailyWage;
-	private int total_Days_worked = 0;
-	private int total_hours_worked = 0;
-	private String company;
-
+	private static int totalWage;
+	
 	public void isPresent() {
 		double emp_val=Math.floor(Math.random()*10)%3;
 		if(emp_val == 1) {
@@ -57,7 +55,7 @@ public class Employee {
 	}
 	
 	public static void computeWage(String company,int wagePerHour, int workingDaysPerMonth, int workingHoursPerMonth) {
-		int total_Days_worked=0, total_hours_worked = 0, empWorkingHours = 0, totalWages = 0;
+		int total_Days_worked=0, total_hours_worked = 0, empWorkingHours = 0;
 		while(total_Days_worked<workingDaysPerMonth && total_hours_worked<workingHoursPerMonth){
 				int empCheck = (int) Math.floor(Math.random()*10)%3;
 				switch(empCheck) {
@@ -78,8 +76,8 @@ public class Employee {
 			}
 			System.out.println("\nTotal hours worked: "+total_hours_worked);
 			System.out.println("Total days worked: "+total_Days_worked);
-			totalWages = total_hours_worked * wagePerHour;
-			System.out.println("Total wages of "+company+" is "+totalWages);
+			totalWage = total_hours_worked * wagePerHour;
+			System.out.println("Total wages of "+company+" is "+totalWage);
 	}
 	
 
