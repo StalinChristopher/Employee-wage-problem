@@ -4,8 +4,8 @@ public class Employee {
 	//private final double regularFullDayWorkingHours=8;
 	//private final double partTimeFullDayWorkingHours=4;
 	private final double monthlyWorkingDays=20;
-	private final int FULL_TIME = 1;
-	private final int PART_TIME = 2;
+	private final static int FULL_TIME = 1;
+	private final static int PART_TIME = 2;
 	private final double wagePerHour = 20;
 	private int empWorkingHours;
 	private int emp_type;
@@ -56,10 +56,9 @@ public class Employee {
 		return hours*wagePerHour;
 	}
 	
-	public void computeWage(String company,int wagePerHour, int workingDaysPerMonth, int workingHoursPerMonth) {
-		this.company = company;
+	public static void computeWage(String company,int wagePerHour, int workingDaysPerMonth, int workingHoursPerMonth) {
+		int total_Days_worked=0, total_hours_worked = 0, empWorkingHours = 0, totalWages = 0;
 		while(total_Days_worked<workingDaysPerMonth && total_hours_worked<workingHoursPerMonth){
-				//int randomHours = (int)Math.floor(Math.random()*((8-4)+1)+4);
 				int empCheck = (int) Math.floor(Math.random()*10)%3;
 				switch(empCheck) {
 				case FULL_TIME:
@@ -79,7 +78,8 @@ public class Employee {
 			}
 			System.out.println("\nTotal hours worked: "+total_hours_worked);
 			System.out.println("Total days worked: "+total_Days_worked);
-			System.out.println("Total wages earned by employee: "+this.calculateWagePerHour(wagePerHour,total_hours_worked));
+			totalWages = total_hours_worked * wagePerHour;
+			System.out.println("Total wages of "+company+" is "+totalWages);
 	}
 	
 

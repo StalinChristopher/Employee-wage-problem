@@ -16,7 +16,8 @@ public class EmployeeMain {
 		System.out.println("Monthly wage of employee "+em1.calculateMonthlyWage());
 		*/
 		
-		em1.computeWage("Dmart",20, 15, 40);
+		Employee.computeWage("Dmart",20, 15, 40);
+		Employee.computeWage("Infosys", 300, 25, 100);
 				
 
 	}
