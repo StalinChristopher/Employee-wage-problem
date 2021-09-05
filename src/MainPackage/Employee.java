@@ -17,14 +17,11 @@ public class Employee {
 		double emp_val=Math.floor(Math.random()*10)%3;
 		if(emp_val == 1) {
 			emp_type = FULL_TIME;
-			empWorkingHours = 8;
 			System.out.println("Full time employee is present");
 		}else if(emp_val == 2 ) {
 			emp_type = PART_TIME;
-			empWorkingHours = 4;
 			System.out.println("Part time employee is present");
 		}else {
-			empWorkingHours = 0;
 			System.out.println("Employee is absent");
 		}
 
@@ -58,14 +55,25 @@ public class Employee {
 		return hours*wagePerHour;
 	}
 	
-	public void daysAndHoursConditionWage(int wagePerHour, int workingDaysPerMonth, int workingHoursPerMonth) {
+	public void computeWage(int wagePerHour, int workingDaysPerMonth, int workingHoursPerMonth) {
 		if(!(emp_type==0)) {
 			while(total_Days_worked<workingDaysPerMonth && total_hours_worked<workingHoursPerMonth){
-				int randomHours = (int)Math.floor(Math.random()*((8-4)+1)+4);
+				//int randomHours = (int)Math.floor(Math.random()*((8-4)+1)+4);
+				int empCheck = (int) Math.floor(Math.random()*10)%3;
+				switch(empCheck) {
+				case FULL_TIME:
+					empWorkingHours = 8;
+					break;
+				case PART_TIME:
+					empWorkingHours = 4;
+					break;
+				default:
+					empWorkingHours = 0;
+				}
 				total_Days_worked++;
 				System.out.println("\nDay no: "+total_Days_worked);
-				System.out.println("Hours worked today : "+randomHours);
-				total_hours_worked+=randomHours;
+				System.out.println("Hours worked today : "+empWorkingHours);
+				total_hours_worked+=empWorkingHours;
 				System.out.println(total_hours_worked);
 			}
 			System.out.println("\nTotal hours worked: "+total_hours_worked);
