@@ -9,9 +9,11 @@ public class Employee implements ComputeEmpWage{
 	private final static int FULL_TIME = 1;
 	private final static int PART_TIME = 2;
 	private List<CompanyEmpWage> companyEmpWageList;
+	private Map<String, CompanyEmpWage> companyEmpWageMap;
 
 	Employee() {
 		companyEmpWageList = new ArrayList<>();
+		companyEmpWageMap = new HashMap<>();
 	}
 
 	public void isPresent() {
@@ -28,7 +30,9 @@ public class Employee implements ComputeEmpWage{
 
 	@Override
 	public void addCompanyEmpWage(String company, int wagePerHour, int workingDaysPerMonth, int workingHoursPerMonth) {
-		companyEmpWageList.add(new CompanyEmpWage(company, wagePerHour, workingDaysPerMonth,workingHoursPerMonth));
+		CompanyEmpWage companyEmpWage = new CompanyEmpWage(company, wagePerHour, workingDaysPerMonth,workingHoursPerMonth);
+		companyEmpWageList.add(companyEmpWage);
+		companyEmpWageMap.put(company, companyEmpWage);
 	}
 
 	private int computeWage(CompanyEmpWage companyEmpWage) {
@@ -69,6 +73,11 @@ public class Employee implements ComputeEmpWage{
 			System.out.println(companyEmpWage.getDailyWages());
 			System.out.println();
 		}
+	}
+
+	@Override
+	public int getTotalWage(String name) {
+		return companyEmpWageMap.get(name).getTotalWage();
 	}
 
 }

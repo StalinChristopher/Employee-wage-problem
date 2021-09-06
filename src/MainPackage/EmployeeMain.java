@@ -15,7 +15,7 @@ public class EmployeeMain {
 		builder.addCompanyEmpWage("Dmart", 60, 20, 80);
 		builder.addCompanyEmpWage("Infosys", 200, 18, 85);
 		builder.computeWage();
-				
+		System.out.println("Total wage of Dmart company is "+builder.getTotalWage("Dmart"));
 
 	}
 }
