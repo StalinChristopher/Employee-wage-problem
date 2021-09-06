@@ -1,6 +1,10 @@
 package MainPackage;
 import java.util.*;
 
+/**
+ * @author Stalin Christopher
+ *
+ */
 public class Employee implements ComputeEmpWage{
 	private final static int FULL_TIME = 1;
 	private final static int PART_TIME = 2;
@@ -29,6 +33,7 @@ public class Employee implements ComputeEmpWage{
 
 	private int computeWage(CompanyEmpWage companyEmpWage) {
 		int total_Days_worked = 0, total_hours_worked = 0, empWorkingHours = 0;
+		List<Integer> dailyWages = new ArrayList<>();
 		while (total_Days_worked < companyEmpWage.noOfWorkingDaysPerMonth
 				&& total_hours_worked < companyEmpWage.noOfWorkingHoursPerMonth) {
 			int empCheck = (int) Math.floor(Math.random() * 10) % 3;
@@ -43,10 +48,12 @@ public class Employee implements ComputeEmpWage{
 				empWorkingHours = 0;
 			}
 			total_Days_worked++;
-			System.out.println("Day no: " + total_Days_worked);
-			System.out.println("Hours worked today : " + empWorkingHours);
+			System.out.print("Day no: " + total_Days_worked);
+			System.out.println("     Hours worked today : " + empWorkingHours);
+			dailyWages.add(empWorkingHours*companyEmpWage.getWagePerHour());
 			total_hours_worked += empWorkingHours;
 		}
+		companyEmpWage.setDailyWages(dailyWages);
 		System.out.println("Total hours worked: " + total_hours_worked);
 		System.out.println("Total days worked: " + total_Days_worked + "\n");
 		return (total_hours_worked * companyEmpWage.wagePerHour);
@@ -58,6 +65,9 @@ public class Employee implements ComputeEmpWage{
 		for(CompanyEmpWage companyEmpWage: companyEmpWageList) {
 			companyEmpWage.setTotalEmpWage(computeWage(companyEmpWage));
 			System.out.println(companyEmpWage);
+			System.out.println("Daily wages of the company "+companyEmpWage.getCompany()+" : ");
+			System.out.println(companyEmpWage.getDailyWages());
+			System.out.println();
 		}
 	}
 

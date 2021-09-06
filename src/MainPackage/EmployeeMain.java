@@ -1,5 +1,9 @@
 package MainPackage;
 
+/**
+ * @author Stalin Christopher
+ *
+ */
 public class EmployeeMain {
 
 	public static void main(String[] args) {
