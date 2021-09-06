@@ -1,23 +1,20 @@
 package MainPackage;
+import java.util.*;
 
 public class Employee implements ComputeEmpWage{
 	private final static int FULL_TIME = 1;
 	private final static int PART_TIME = 2;
-	private int empType;
-	private int noOfCompanies = 0;
-	private CompanyEmpWage[] companyEmpWageArray;
+	private List<CompanyEmpWage> companyEmpWageList;
 
 	Employee() {
-		companyEmpWageArray = new CompanyEmpWage[5];
+		companyEmpWageList = new ArrayList<>();
 	}
 
 	public void isPresent() {
 		double emp_val = Math.floor(Math.random() * 10) % 3;
 		if (emp_val == 1) {
-			empType = FULL_TIME;
 			System.out.println("Full time employee is present");
 		} else if (emp_val == 2) {
-			empType = PART_TIME;
 			System.out.println("Part time employee is present");
 		} else {
 			System.out.println("Employee is absent");
@@ -27,9 +24,7 @@ public class Employee implements ComputeEmpWage{
 
 	@Override
 	public void addCompanyEmpWage(String company, int wagePerHour, int workingDaysPerMonth, int workingHoursPerMonth) {
-		companyEmpWageArray[noOfCompanies] = new CompanyEmpWage(company, wagePerHour, workingDaysPerMonth,
-				workingHoursPerMonth);
-		noOfCompanies++;
+		companyEmpWageList.add(new CompanyEmpWage(company, wagePerHour, workingDaysPerMonth,workingHoursPerMonth));
 	}
 
 	private int computeWage(CompanyEmpWage companyEmpWage) {
@@ -59,10 +54,10 @@ public class Employee implements ComputeEmpWage{
 	}
 
 	@Override
-	public void computeWage() {
-		for (int i = 0; i < noOfCompanies; i++) {
-			companyEmpWageArray[i].setTotalEmpWage(computeWage(companyEmpWageArray[i]));
-			System.out.println(companyEmpWageArray[i]);
+	public void computeWage() {		
+		for(CompanyEmpWage companyEmpWage: companyEmpWageList) {
+			companyEmpWage.setTotalEmpWage(computeWage(companyEmpWage));
+			System.out.println(companyEmpWage);
 		}
 	}
 
